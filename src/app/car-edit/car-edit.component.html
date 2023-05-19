@@ -1,0 +1,46 @@
+<h1>Edit Car</h1>
+
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>ID</mat-label>
+    <input matInput placeholder="ID" formControlName="id" readonly>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>License Plate</mat-label>
+    <input matInput placeholder="License Plate" formControlName="licensePlate">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Brand</mat-label>
+    <input matInput placeholder="Brand" formControlName="brand">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Model</mat-label>
+    <input matInput placeholder="Model" formControlName="model">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Year</mat-label>
+    <input matInput type="number" placeholder="Year" formControlName="year">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Color</mat-label>
+    <input matInput placeholder="Color" formControlName="color">
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Parking Lot</mat-label>
+    <mat-select formControlName="parkingLotId">
+      <mat-option *ngFor="let parkingLot of parkingLots" [value]="parkingLot.id">
+        {{parkingLot.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Save</button>
+</form>
+
+<button mat-raised-button color="warn" (click)="onDelete()">Delete</button>

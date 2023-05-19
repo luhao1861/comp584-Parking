@@ -1,0 +1,26 @@
+<h1>Parking Lots</h1>
+<p>Here's a list of parking lots:</p>
+<button *ngIf ="showFlag" class="my-button" [routerLink]="['/parking-lot-edit', 'new']">Add Parking Lot</button>
+<table class='table table-striped' aria-labelledby="tableLabel" [hidden]="!parkingLots">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Capacity</th>
+      <th>Available Spaces</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let parkingLot of parkingLots">
+      <td><a [routerLink]="['/parking-lot-edit', parkingLot.id]">{{parkingLot.id}}</a></td>
+      <td>{{ parkingLot.name }}</td>
+      <td>{{ parkingLot.capacity }}</td>
+      <td>{{ parkingLot.availableSpaces }}</td>
+      <td>
+        <button *ngIf ="showFlag" class="my-button" [routerLink]="['/parking-lot-edit', parkingLot.id]">Edit</button>
+        <button *ngIf ="showFlag" class="my-button" (click)="deleteParkingLot(parkingLot.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

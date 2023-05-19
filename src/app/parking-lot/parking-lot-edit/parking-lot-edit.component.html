@@ -1,0 +1,29 @@
+<div class="parking-lot-edit">
+    <h1>Edit - {{parkingLot?.id}}</h1>
+    <p *ngIf="this.id && !parkingLot"><em>Loading...</em></p>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <!-- Name -->
+      <mat-form-field>
+        <mat-label>Name:</mat-label>
+        <input matInput formControlName="name" placeholder="Type a name">
+      </mat-form-field>
+      <!-- Capacity -->
+      <mat-form-field>
+        <mat-label>Capacity:</mat-label>
+        <input matInput formControlName="capacity" type="number" placeholder="Insert the capacity">
+      </mat-form-field>
+      <!-- Available Spaces -->
+      <mat-form-field>
+        <mat-label>Available Spaces:</mat-label>
+        <input matInput formControlName="availableSpaces" type="number" placeholder="Insert the available spaces">
+      </mat-form-field>
+      <div>
+        <button mat-flat-button color="primary" type="submit">Save
+        </button>
+        <button mat-flat-button color="secondary" [routerLink]="['/parking-lots']">
+          Cancel
+        </button>
+      </div>
+    </form>
+  </div>
+  
